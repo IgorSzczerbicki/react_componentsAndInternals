@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import classes from './App.css';
-import Person from './Person/Person'
+import Persons from '../components/Persons/Persons'
+import Cockpit from '../components/Cockpit/Cockpit'
 
 class App extends Component {
 
@@ -44,40 +45,24 @@ class App extends Component {
 
 	render() {
 		let persons = null;
-		let btnClass = '';
 
 		if (this.state.showPersons){
 			persons = (
-				<div>
-					{this.state.persons.map((person, index) => {
-						return <Person
-							key = {person.id}
-							delete ={this.deletePersonHandler.bind(this, index)}
-							name={person.name}
-							age ={person.age}
-							changeName = {(event) => this.nameChangeHandler(event, person.id)} />
-					})}
-				</div>
+					<Persons
+						persons = {this.state.persons}
+						clicked = {this.deletePersonHandler}
+						changed = {this.nameChangeHandler}
+					/>
 			);
-			btnClass = classes.Red;
-		}
-
-		let assignedClasses = [];
-		if (this.state.persons.length <= 2){
-			assignedClasses.push(classes.red);
-		}
-		if (this.state.persons.length <= 1){
-			assignedClasses.push(classes.bold);
 		}
 
 		return (
 				<div className={classes.App}>
-					<h1>React Start</h1>
-					<p className={assignedClasses.join(' ')}>Dynamiczne style</p>
-					<button
-						className={btnClass}
-						onClick={this.togglePersonHandler}>Toggle persons
-					</button>
+					<Cockpit
+						showPersons = {this.state.showPersons}
+						persons = {this.state.persons}
+						clicked = {this.togglePersonHandler}
+					/>
 					{persons}
 				</div>
 		);

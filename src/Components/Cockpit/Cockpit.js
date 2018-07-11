@@ -15,7 +15,7 @@ const cockpit = (props) => {
 	}
 	return (
 		<div className = {classes.Cockpit}>
-			<h1>React Start</h1>
+			<h1>{props.appTitle}</h1>
 			<p className={assignedClasses.join(' ')}>Dynamiczne style</p>
 			<button
 				className={btnClass}

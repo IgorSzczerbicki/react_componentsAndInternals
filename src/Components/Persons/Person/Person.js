@@ -21,6 +21,10 @@ class Person extends Component {
 		if (this.props.position === 0) this.inputElement.current.focus();
 	}
 
+	focus() {
+		this.inputElement.current.focus();
+	}
+
 	render() {
 		console.log('[Person.js] render()');
 		return (

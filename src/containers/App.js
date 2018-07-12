@@ -68,7 +68,11 @@ class App extends PureComponent {
 	};
 
 	togglePersonHandler = () => {
-		this.setState({showPersons: !this.state.showPersons})
+		this.setState((prevState, props) => {
+			return {
+				showPersons: !prevState.showPersons
+			}
+		})
 	};
 
 	render() {

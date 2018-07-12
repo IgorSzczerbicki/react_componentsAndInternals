@@ -1,7 +1,8 @@
-import React, {Component} from 'react'
-import classes from './Person.css'
-import withClass2 from '../../../hoc/withClass2'
-import Aaux from '../../../hoc/Aaux'
+import React, {Component} from 'react';
+import classes from './Person.css';
+import withClass2 from '../../../hoc/withClass2';
+import Aaux from '../../../hoc/Aaux';
+import PropTypes from 'prop-types';
 
 class Person extends Component {
 
@@ -36,5 +37,12 @@ class Person extends Component {
 		);
 	};
 }
+
+Person.propTypes = {
+	click: PropTypes.func,
+	name: PropTypes.string,
+	age: PropTypes.number,
+	changed: PropTypes.func
+};
 
 export default withClass2(Person, classes.Person);
